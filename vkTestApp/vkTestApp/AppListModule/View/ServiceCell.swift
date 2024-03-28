@@ -47,6 +47,9 @@ final class ServiceCell: UICollectionViewCell {
         serviceDescription.translatesAutoresizingMaskIntoConstraints = false
         addSubview(serviceDescription)
         
+        serviceName.textColor = .label
+        serviceDescription.textColor = .label
+        
         shimmerView.translatesAutoresizingMaskIntoConstraints = false
         shimmerView.isHidden = true
         shimmerView.layer.cornerRadius = 8
@@ -56,9 +59,9 @@ final class ServiceCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             serviceImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            serviceImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            serviceImage.widthAnchor.constraint(equalToConstant: 70),
-            serviceImage.heightAnchor.constraint(equalToConstant: 70),
+            serviceImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            serviceImage.widthAnchor.constraint(equalToConstant: 90),
+            serviceImage.heightAnchor.constraint(equalToConstant: 90),
             
             serviceName.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             serviceName.leadingAnchor.constraint(equalTo: serviceImage.trailingAnchor, constant: 10),

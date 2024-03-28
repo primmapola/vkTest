@@ -15,19 +15,20 @@ final class AppListViewController: UIViewController {
     
     private lazy var serviceCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.frame.width - 20, height: 110)
+        layout.itemSize = CGSize(width: view.frame.width, height: 110)
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 5
+        layout.minimumLineSpacing = 10
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.register(ServiceCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.accessibilityIdentifier = "ServiceCollectionView"
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -50,7 +51,7 @@ private extension AppListViewController {
     func setupUI() {
         view.addSubview(serviceCollectionView)
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
             serviceCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -85,14 +86,14 @@ extension AppListViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-           let cell = collectionView.cellForItem(at: indexPath)
-           cell?.backgroundColor = UIColor.systemGray4
-       }
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.secondarySystemBackground
+    }
 
-       func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-           let cell = collectionView.cellForItem(at: indexPath)
-           cell?.backgroundColor = UIColor.white
-       }
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.systemBackground
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedViewModel = displayData[indexPath.row]
