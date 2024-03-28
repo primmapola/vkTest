@@ -9,6 +9,8 @@ import UIKit
 
 final class AppListViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var presenter: AppListViewControllerOutput?
     
     private lazy var serviceCollectionView: UICollectionView = {
@@ -25,10 +27,13 @@ final class AppListViewController: UIViewController {
         collectionView.register(ServiceCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.accessibilityIdentifier = "ServiceCollectionView"
         return collectionView
     }()
     
     private var displayData: [ServiceViewModel] = []
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,8 @@ final class AppListViewController: UIViewController {
         setupUI()
     }
 }
+
+// MARK: - User interface
 
 private extension AppListViewController {
     func setupUI() {
@@ -57,6 +64,8 @@ private extension AppListViewController {
         navigationItem.title = "Сервисы"
     }
 }
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 
 extension AppListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,6 +99,8 @@ extension AppListViewController: UICollectionViewDataSource, UICollectionViewDel
         presenter?.handleDeepLinkFor(selectedViewModel.link)
     }
 }
+
+// MARK: - AppListViewControllerInput
 
 extension AppListViewController: AppListViewControllerInput {
     func displayData(_ data: [ServiceViewModel]) {

@@ -10,12 +10,16 @@ import Kingfisher
 
 final class ServiceCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     weak var delegate: ServiceCellDelegate?
     
     let serviceImage = UIImageView()
     private let serviceName = UILabel()
     private let serviceDescription = UILabel()
     private let shimmerView = ShimmerView()
+    
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +30,8 @@ final class ServiceCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private
     
     private func setupUI() {
         serviceImage.contentMode = .scaleAspectFit
@@ -70,6 +76,8 @@ final class ServiceCell: UICollectionViewCell {
         ])
     }
 }
+
+// MARK: - Configure
 
 extension ServiceCell {
     func configureWithDisplayData(_ data: ServiceViewModel) {

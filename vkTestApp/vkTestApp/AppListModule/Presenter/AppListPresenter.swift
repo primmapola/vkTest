@@ -11,13 +11,13 @@ import UIKit
 
 final class AppListPresenter {
     
+    // MARK: - Properties
+    
     weak var view: AppListViewControllerInput?
     private var cancellables: Set<AnyCancellable> = []
-    
-    deinit {
-        print("presenter deinited")
-    }
 }
+
+// MARK: - Private
 
 private extension AppListPresenter {
     func loadData() {
