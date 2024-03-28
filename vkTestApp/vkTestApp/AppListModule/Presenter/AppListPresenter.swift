@@ -55,7 +55,6 @@ private extension AppListPresenter {
 
 extension AppListPresenter: AppListViewControllerOutput, ServiceCellDelegate {
     func handleDeepLinkFor(_ url: URL) {
-        
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     

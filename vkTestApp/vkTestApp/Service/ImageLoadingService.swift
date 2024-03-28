@@ -16,8 +16,8 @@ class ImageLoadingService {
             .map { response -> UIImage? in
                 return UIImage(data: response.data)
             }
-            .replaceError(with: nil) // В случае ошибки возвращаем nil
-            .receive(on: DispatchQueue.main) // Убедимся, что мы на главном потоке
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }

@@ -69,6 +69,16 @@ extension AppListViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+           let cell = collectionView.cellForItem(at: indexPath)
+           cell?.backgroundColor = UIColor.systemGray4
+       }
+
+       func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+           let cell = collectionView.cellForItem(at: indexPath)
+           cell?.backgroundColor = UIColor.white
+       }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedViewModel = displayData[indexPath.row]
         presenter?.handleDeepLinkFor(selectedViewModel.link)
