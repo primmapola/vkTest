@@ -9,4 +9,5 @@ import Foundation
 
 protocol AppListViewControllerOutput: AnyObject {
     func setupReady()
+    func handleDeepLinkFor(_ url: URL)
 }

@@ -17,6 +17,12 @@
 		74E3B7DE2BB4ED0B00CF0309 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 74E3B7DD2BB4ED0B00CF0309 /* AlamofireDynamic */; };
 		74E3B7E02BB4ED3300CF0309 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7DF2BB4ED3300CF0309 /* AppModel.swift */; };
 		74E3B7E72BB4EE1B00CF0309 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7E62BB4EE1B00CF0309 /* AppViewModel.swift */; };
+		74E3B7EC2BB5D69100CF0309 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7EB2BB5D69100CF0309 /* ServiceCell.swift */; };
+		74E3B7EF2BB5D94E00CF0309 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 74E3B7EE2BB5D94E00CF0309 /* Kingfisher */; };
+		74E3B7F12BB5DAFD00CF0309 /* ImageLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7F02BB5DAFD00CF0309 /* ImageLoadingService.swift */; };
+		74E3B7F32BB5DCAC00CF0309 /* ServiceCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7F22BB5DCAC00CF0309 /* ServiceCellDelegate.swift */; };
+		74E3B7F62BB5E2EF00CF0309 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 74E3B7F52BB5E2EF00CF0309 /* SkeletonView */; };
+		74E3B7F82BB5E4BC00CF0309 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B7F72BB5E4BC00CF0309 /* ShimmerView.swift */; };
 		74F0E38B2BB4E7D700E492F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0E38A2BB4E7D700E492F8 /* AppDelegate.swift */; };
 		74F0E38D2BB4E7D700E492F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0E38C2BB4E7D700E492F8 /* SceneDelegate.swift */; };
 		74F0E3942BB4E7D800E492F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F0E3932BB4E7D800E492F8 /* Assets.xcassets */; };
@@ -52,6 +58,10 @@
 		74E3B7D82BB4EC6400CF0309 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		74E3B7DF2BB4ED3300CF0309 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		74E3B7E62BB4EE1B00CF0309 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		74E3B7EB2BB5D69100CF0309 /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
+		74E3B7F02BB5DAFD00CF0309 /* ImageLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingService.swift; sourceTree = "<group>"; };
+		74E3B7F22BB5DCAC00CF0309 /* ServiceCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellDelegate.swift; sourceTree = "<group>"; };
+		74E3B7F72BB5E4BC00CF0309 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		74F0E3872BB4E7D700E492F8 /* vkTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0E38A2BB4E7D700E492F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F0E38C2BB4E7D700E492F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E3B7F62BB5E2EF00CF0309 /* SkeletonView in Frameworks */,
+				74E3B7EF2BB5D94E00CF0309 /* Kingfisher in Frameworks */,
 				74E3B7DC2BB4ED0B00CF0309 /* Alamofire in Frameworks */,
 				74E3B7DE2BB4ED0B00CF0309 /* AlamofireDynamic in Frameworks */,
 			);
@@ -116,6 +128,7 @@
 			children = (
 				74E3B7D42BB4E92100CF0309 /* AppListViewControllerInput.swift */,
 				74E3B7D22BB4E8C300CF0309 /* AppListViewControllerOutput.swift */,
+				74E3B7F22BB5DCAC00CF0309 /* ServiceCellDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -132,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				74E3B7CE2BB4E86500CF0309 /* AppListViewController.swift */,
+				74E3B7EB2BB5D69100CF0309 /* ServiceCell.swift */,
+				74E3B7F72BB5E4BC00CF0309 /* ShimmerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				74E3B7D82BB4EC6400CF0309 /* DataService.swift */,
+				74E3B7F02BB5DAFD00CF0309 /* ImageLoadingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -232,6 +248,8 @@
 			packageProductDependencies = (
 				74E3B7DB2BB4ED0B00CF0309 /* Alamofire */,
 				74E3B7DD2BB4ED0B00CF0309 /* AlamofireDynamic */,
+				74E3B7EE2BB5D94E00CF0309 /* Kingfisher */,
+				74E3B7F52BB5E2EF00CF0309 /* SkeletonView */,
 			);
 			productName = vkTestApp;
 			productReference = 74F0E3872BB4E7D700E492F8 /* vkTestApp.app */;
@@ -307,6 +325,8 @@
 			mainGroup = 74F0E37E2BB4E7D700E492F8;
 			packageReferences = (
 				74E3B7D72BB4EC5500CF0309 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				74E3B7ED2BB5D94E00CF0309 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				74E3B7F42BB5E2EF00CF0309 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 74F0E3882BB4E7D700E492F8 /* Products */;
 			projectDirPath = "";
@@ -356,9 +376,13 @@
 				74F0E38B2BB4E7D700E492F8 /* AppDelegate.swift in Sources */,
 				74F0E38D2BB4E7D700E492F8 /* SceneDelegate.swift in Sources */,
 				74E3B7E02BB4ED3300CF0309 /* AppModel.swift in Sources */,
+				74E3B7EC2BB5D69100CF0309 /* ServiceCell.swift in Sources */,
 				74E3B7D32BB4E8C300CF0309 /* AppListViewControllerOutput.swift in Sources */,
+				74E3B7F32BB5DCAC00CF0309 /* ServiceCellDelegate.swift in Sources */,
 				74E3B7D52BB4E92100CF0309 /* AppListViewControllerInput.swift in Sources */,
+				74E3B7F82BB5E4BC00CF0309 /* ShimmerView.swift in Sources */,
 				74E3B7CF2BB4E86500CF0309 /* AppListViewController.swift in Sources */,
+				74E3B7F12BB5DAFD00CF0309 /* ImageLoadingService.swift in Sources */,
 				74E3B7D92BB4EC6400CF0309 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +736,22 @@
 				minimumVersion = 5.9.0;
 			};
 		};
+		74E3B7ED2BB5D94E00CF0309 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		74E3B7F42BB5E2EF00CF0309 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -724,6 +764,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74E3B7D72BB4EC5500CF0309 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		74E3B7EE2BB5D94E00CF0309 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74E3B7ED2BB5D94E00CF0309 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		74E3B7F52BB5E2EF00CF0309 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74E3B7F42BB5E2EF00CF0309 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

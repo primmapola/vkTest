@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AppListViewControllerInput: AnyObject {
-    
+    func displayData(_ data: [ServiceViewModel])
 }

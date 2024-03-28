@@ -11,7 +11,7 @@ struct ServiceViewModel {
     let name: String
     let description: String
     let link: URL
-    let iconURL: URL
+    let iconURL: URL?
 }
 
 struct AppViewModel {

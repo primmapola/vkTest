@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 final class AppListPresenter {
     
@@ -22,28 +23,59 @@ private extension AppListPresenter {
     func loadData() {
         DataService.shared.fetchData()
             .receive(on: DispatchQueue.main)
-            .handleEvents(receiveCancel: {
-                print("ViewModel: Подписка была отменена")
-            })
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    print("ViewModel: Получение данных завершено")
+                    print("Presenter: Получение данных завершено")
                 case .failure(let error):
-                    print("ViewModel: Ошибка при получении данных: \(error)")
+                    print("Presenter: Ошибка при получении данных: \(error)")
                 }
-            }, receiveValue: { appModel in
-                print("ViewModel: Полученные данные: \(appModel)")
+            }, receiveValue: { [weak self] appModel in
+                print("Presenter: Полученные данные: \(appModel)")
+                let appViewModel = AppViewModel(from: appModel)
+                self?.view?.displayData(appViewModel.services)
             })
             .store(in: &cancellables)
     }
+    
+    func loadImageForViewModel(_ viewModel: ServiceViewModel, completion: @escaping (UIImage?) -> Void) {
+        if let imageUrl = viewModel.iconURL {
+            ImageLoadingService.shared.loadImage(from: imageUrl)
+                .sink(receiveValue: { image in
+                    completion(image ?? UIImage(systemName: "photo"))
+                })
+                .store(in: &cancellables)
+        } else {
+            completion(UIImage(systemName: "photo"))
+        }
+    }
 }
-
 
 // MARK: - AppListViewControllerOutput
 
-extension AppListPresenter: AppListViewControllerOutput {
+extension AppListPresenter: AppListViewControllerOutput, ServiceCellDelegate {
+    func handleDeepLinkFor(_ url: URL) {
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     func setupReady() {
         loadData()
+    }
+    
+    func loadImageForCell(_ cell: ServiceCell, url: URL) {
+        loadImageForViewModel(url) { image in
+            DispatchQueue.main.async {
+                cell.serviceImage.image = image
+            }
+        }
+    }
+    
+    private func loadImageForViewModel(_ url: URL, completion: @escaping (UIImage?) -> Void) {
+        ImageLoadingService.shared.loadImage(from: url)
+            .sink(receiveValue: { image in
+                completion(image ?? UIImage(systemName: "photo"))
+            })
+            .store(in: &cancellables)
     }
 }
