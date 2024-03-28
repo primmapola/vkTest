@@ -33,8 +33,8 @@ final class AppListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
         presenter?.setupReady()
+        setupNavigationBar()
         setupUI()
     }
 }
@@ -43,12 +43,18 @@ private extension AppListViewController {
     func setupUI() {
         view.addSubview(serviceCollectionView)
         
+        self.view.backgroundColor = .white
+        
         NSLayoutConstraint.activate([
             serviceCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             serviceCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             serviceCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             serviceCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Сервисы"
     }
 }
 

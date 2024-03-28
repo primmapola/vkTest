@@ -37,18 +37,6 @@ private extension AppListPresenter {
             })
             .store(in: &cancellables)
     }
-    
-    func loadImageForViewModel(_ viewModel: ServiceViewModel, completion: @escaping (UIImage?) -> Void) {
-        if let imageUrl = viewModel.iconURL {
-            ImageLoadingService.shared.loadImage(from: imageUrl)
-                .sink(receiveValue: { image in
-                    completion(image ?? UIImage(systemName: "photo"))
-                })
-                .store(in: &cancellables)
-        } else {
-            completion(UIImage(systemName: "photo"))
-        }
-    }
 }
 
 // MARK: - AppListViewControllerOutput

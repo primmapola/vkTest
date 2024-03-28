@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let appListModule = AppListAssembly()
         
-        window?.rootViewController = appListModule.assemble()
+        let navigationController = UINavigationController(rootViewController: appListModule.assemble())
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
