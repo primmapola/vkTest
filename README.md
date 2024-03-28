@@ -4,7 +4,8 @@
 _Задание:_ сделать список сервисов с диплинками по дизайну.
 
 **Стек:**
-- **Язык:** Swift 
+- **Язык:** Swift
+- **Архитектура:** MVP
 - **Сеть:** Alamofire + Combine
 - **UI:** UIKit (AutoLayout)
 - **Libs:** SkeletonView / Kingfisher
