@@ -63,7 +63,7 @@ final class ServiceCell: UICollectionViewCell {
             serviceImage.widthAnchor.constraint(equalToConstant: 90),
             serviceImage.heightAnchor.constraint(equalToConstant: 90),
             
-            serviceName.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            serviceName.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             serviceName.leadingAnchor.constraint(equalTo: serviceImage.trailingAnchor, constant: 10),
             serviceName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
